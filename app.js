@@ -1964,7 +1964,7 @@ function playSound(type) {
   }
 }
 
-function caseEggArt(slug) { return `assets/eggs/${slug}.png`; }
+function caseEggArt(slug) { return `eggs/${slug}.png`; }
 
 function skinArt(slug, type, primary, secondary) {
   const remote = `https://cdn.csgoskins.gg/public/images/galleries/v4/${slug}/inspecting.png`;
@@ -2014,6 +2014,7 @@ function weaponArt(type, primary, secondary) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 180"><rect width="460" height="180" rx="26" fill="rgba(255,255,255,0.03)" />${shapes[type] || shapes.rifle}</svg>`;
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 }
+
 
 
 
