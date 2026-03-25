@@ -22,18 +22,18 @@
       </div>
       <nav class="nav" id="main-nav"></nav>
       <section class="sidebar-card">
-        <p class="eyebrow">Dinolab Status</p>
-        <div class="status-row"><span>Баланс</span><strong id="balance-value">€0.00</strong></div>
-        <div class="status-row"><span>Инвентарь</span><strong id="inventory-count">0</strong></div>
-        <div class="status-row"><span>Открыто яиц</span><strong id="opened-count">0</strong></div>
-        <div class="status-row"><span>Бонусные яйца</span><strong id="free-cases-count">0</strong></div>
+        <p class="eyebrow" id="sidebar-status-title">Dinolab Status</p>
+        <div class="status-row"><span id="status-balance-label">Баланс</span><strong id="balance-value">€0.00</strong></div>
+        <div class="status-row"><span id="status-inventory-label">Инвентарь</span><strong id="inventory-count">0</strong></div>
+        <div class="status-row"><span id="status-opened-label">Открыто яиц</span><strong id="opened-count">0</strong></div>
+        <div class="status-row"><span id="status-free-label">Бонусные яйца</span><strong id="free-cases-count">0</strong></div>
       </section>
     </aside>
 
     <main class="content">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Dino vault / case simulator</p>
+          <p class="eyebrow" id="topbar-eyebrow">Dino vault / case simulator</p>
           <h2 id="page-title">Главная</h2>
         </div>
         <div class="topbar-actions">
@@ -81,6 +81,7 @@
   <script src="./app.js"></script>
 </body>
 </html>
+
 
 
 
