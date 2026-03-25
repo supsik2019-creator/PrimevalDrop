@@ -173,6 +173,7 @@ const CASES = [
     icon: "🌿",
     iconTint: "#84ff88",
     shell: "linear-gradient(180deg, rgba(48,78,40,.92), rgba(33,23,12,.96))",
+    eggArt: caseEggArt("fern-hush"),
     price: 2,
     description: "Самое дешёвое яйцо с тихим зелёным пулом. Часто почти без минуса и иногда отдаёт приятный плюс.",
     loot: [
@@ -181,7 +182,7 @@ const CASES = [
       { name: "MP9 | Capillary", collection: "Clutch", rarity: "Common", wear: "Minimal Wear", chance: 13, price: 1.05, art: skinArt("mp9-capillary") },
       { name: "Nova | Wild Six", collection: "Clutch", rarity: "Rare", wear: "Field-Tested", chance: 11, price: 1.38, art: skinArt("nova-wild-six") },
       { name: "MAG-7 | Monster Call", collection: "Dreams & Nightmares", rarity: "Rare", wear: "Field-Tested", chance: 10, price: 1.72, art: skinArt("mag-7-monster-call") },
-      { name: "Sawed-Off | Kiss Love", collection: "Revolution", rarity: "Rare", wear: "Field-Tested", chance: 9, price: 2.05, art: "./assets/weapon_sawedoff_cu_sawedoff_kisslove_light_large.55dc07f073e8c5ce65f21e4fb5957625db7ba266.png" },
+      { name: "Sawed-Off | Kiss Love", collection: "Revolution", rarity: "Rare", wear: "Field-Tested", chance: 9, price: 2.05, art: "assets/weapon_sawedoff_cu_sawedoff_kisslove_light_large.55dc07f073e8c5ce65f21e4fb5957625db7ba266.png" },
       { name: "MP5-SD | Kitbash", collection: "Fracture", rarity: "Rare", wear: "Minimal Wear", chance: 8, price: 2.4, art: skinArt("mp5-sd-kitbash") },
       { name: "P2000 | Lifted Spirits", collection: "Dreams & Nightmares", rarity: "Epic", wear: "Field-Tested", chance: 7, price: 2.95, art: skinArt("p2000-lifted-spirits") },
       { name: "Galil AR | Signal", collection: "Danger Zone", rarity: "Epic", wear: "Minimal Wear", chance: 5, price: 3.6, art: skinArt("galil-ar-signal") },
@@ -196,6 +197,7 @@ const CASES = [
     icon: "🪨",
     iconTint: "#ffc878",
     shell: "linear-gradient(180deg, rgba(80,56,34,.95), rgba(24,18,16,.98))",
+    eggArt: caseEggArt("tar-shell"),
     price: 4,
     description: "Тёмное бюджетное яйцо с более жирным верхом. Уже может окупать заметно чаще обычного лоу-тира.",
     loot: [
@@ -219,6 +221,7 @@ const CASES = [
     icon: "🦖",
     iconTint: "#95ff71",
     shell: "linear-gradient(180deg, rgba(70,90,42,.88), rgba(58,31,15,.94))",
+    eggArt: caseEggArt("amber-clutch"),
     price: 5,
     description: "Стартовое яйцо уже с реальным плюсом. Здесь чаще выходишь в ноль или выше, чем просто сливаешь баланс.",
     loot: [
@@ -242,6 +245,7 @@ const CASES = [
     icon: "🦴",
     iconTint: "#f1f3ff",
     shell: "linear-gradient(180deg, rgba(56,76,45,.94), rgba(34,22,16,.95))",
+    eggArt: caseEggArt("amber-clutch"),
     price: 18,
     description: "Среднее яйцо с более агрессивным профилем: неровные минусы, но без тотально мёртвого низа.",
     loot: [
@@ -265,6 +269,7 @@ const CASES = [
     icon: "🌊",
     iconTint: "#5bbcff",
     shell: "linear-gradient(180deg, rgba(44,104,104,.92), rgba(23,40,37,.96))",
+    eggArt: caseEggArt("fossil-lagoon"),
     price: 42,
     description: "Холодное морское яйцо: заметный объём mid-tier с нормальным шансом отбиться и редким printstream-апсайдом.",
     loot: [
@@ -288,6 +293,7 @@ const CASES = [
     icon: "👑",
     iconTint: "#ffcd48",
     shell: "linear-gradient(180deg, rgba(96,86,32,.95), rgba(40,34,18,.97))",
+    eggArt: caseEggArt("jungle-crown"),
     price: 95,
     description: "Премиальное яйцо с плотным премиум-пулом: не про частый плюс, а про дорогие перевороты и мощный верх.",
     loot: [
@@ -311,6 +317,7 @@ const CASES = [
     icon: "☄️",
     iconTint: "#ff7b76",
     shell: "linear-gradient(180deg, rgba(91,62,37,.96), rgba(20,18,18,.98))",
+    eggArt: caseEggArt("meteor-fang"),
     price: 220,
     description: "Люкс-яйцо поздней игры: высокий риск, тяжёлый минусовой низ и очень дорогой верх для сильных окупов.",
     loot: [
@@ -469,18 +476,9 @@ function renderHomePage() {
           <button class="action-button secondary" data-go-page="roulette">${isEn ? "Spin wheel" : "Крутить колесо"}</button>
         </div>
         <div class="hero-eggs">${CASES.slice(0, 5).map((item) => `
-          <div class="egg-token" style="background:${item.shell}">
+          <div class="egg-token egg-token--art" style="background:${item.shell}">
             <em class="egg-shell__icon egg-shell__icon--case" style="color:${item.iconTint}">${item.icon}</em>
-            <div class="egg-display egg-display--mini">
-              <div class="egg-display__glow" style="--glow:${item.iconTint}"></div>
-              <div class="egg-display__character" style="--accent:${item.iconTint}">
-                <span>${item.icon}</span>
-              </div>
-              <div class="egg-display__shell egg-display__shell--top"></div>
-              <div class="egg-display__shell egg-display__shell--bottom"></div>
-              <div class="egg-display__foliage"></div>
-              <div class="egg-display__pedestal"></div>
-            </div>
+            ${renderEggArt(item, "mini")}
             <span>${caseTitle(item)}</span>
           </div>
         `).join("")}</div>
@@ -532,17 +530,9 @@ function renderCasesPage() {
           <h3>${selectedCase.icon} ${caseTitle(selectedCase)}</h3>
           <p>${caseDescription(selectedCase)}</p>
         </div>
-        <div class="case-egg case-egg--featured" style="background:${selectedCase.shell}">
+        <div class="case-egg case-egg--featured case-egg--art" style="background:${selectedCase.shell}">
           <em class="egg-shell__icon egg-shell__icon--case" style="color:${selectedCase.iconTint}">${selectedCase.icon}</em>
-          <div class="egg-display egg-display--featured">
-            <div class="egg-display__glow" style="--glow:${selectedCase.iconTint}"></div>
-            <div class="egg-display__character" style="--accent:${selectedCase.iconTint}"><span>${selectedCase.icon}</span></div>
-            <div class="egg-display__shell egg-display__shell--top"></div>
-            <div class="egg-display__shell egg-display__shell--bottom"></div>
-            <div class="egg-display__foliage"></div>
-            <div class="egg-display__pedestal"></div>
-          </div>
-          <div class="crack-lines"></div>
+          ${renderEggArt(selectedCase, "featured")}
         </div>
         <div class="stack-row" style="margin: 18px 0 8px;"><strong class="case-price">${freeCount ? (isEn ? "Bonuses available" : "Есть бонусы") : money(selectedCase.price)}</strong><span class="muted">${freeCount ? (isEn ? `Bonuses: ${freeCount}` : `Бонусов: ${freeCount}`) : (isEn ? `Price x1: ${money(selectedCase.price)}` : `Цена за 1: ${money(selectedCase.price)}`)}</span></div>
         <div class="case-actions case-actions--multi">
@@ -699,17 +689,9 @@ function renderProfilePage() {
           </div>
           <div class="profile-hero-stage">
             <span class="profile-hero-stage__glow" style="--accent:${avatarCase.iconTint}"></span>
-            <div class="case-egg case-egg--profile" style="background:${avatarCase.shell}">
+            <div class="case-egg case-egg--profile case-egg--art" style="background:${avatarCase.shell}">
               <em class="egg-shell__icon egg-shell__icon--case" style="color:${avatarCase.iconTint}">${avatarCase.icon}</em>
-              <div class="egg-display egg-display--featured">
-                <div class="egg-display__glow" style="--glow:${avatarCase.iconTint}"></div>
-                <div class="egg-display__character" style="--accent:${avatarCase.iconTint}"><span>${avatarCase.icon}</span></div>
-                <div class="egg-display__shell egg-display__shell--top"></div>
-                <div class="egg-display__shell egg-display__shell--bottom"></div>
-                <div class="egg-display__foliage"></div>
-                <div class="egg-display__pedestal"></div>
-              </div>
-              <div class="crack-lines"></div>
+              ${renderEggArt(avatarCase, "profile")}
             </div>
             <div class="profile-stage-plate">
               <strong>${caseTitle(avatarCase)}</strong>
@@ -800,9 +782,7 @@ function renderProfilePage() {
           <div class="avatar-picker">
             ${CASES.map((item) => `
               <button class="avatar-chip${state.profile.avatarCaseId === item.id ? " active" : ""}" data-avatar-case="${item.id}">
-                <span class="avatar-chip__egg" style="--shell:${item.shell}; --accent:${item.iconTint}">
-                  <span>${item.icon}</span>
-                </span>
+                <span class="avatar-chip__egg avatar-chip__egg--art" style="--egg-art:url('${item.eggArt}'); --accent:${item.iconTint}"></span>
                 <strong>${caseTitle(item)}</strong>
               </button>
             `).join("")}
@@ -903,6 +883,10 @@ function bindProfileActions() {
     persistAndRender();
   });
 }
+function renderEggArt(item, variant = "card") {
+  return `<div class="egg-display egg-display--art egg-display--${variant}" style="--egg-art:url('${item.eggArt}'); --glow:${item.iconTint};"></div>`;
+}
+
 function renderCaseCardMarkup(item) {
   const legendary = [...item.loot].sort((a, b) => b.price - a.price)[0];
   const freeCount = getFreeCaseCount(item.id);
@@ -911,19 +895,9 @@ function renderCaseCardMarkup(item) {
   const isEn = currentLang() === "en";
   return `
     <article class="case-card">
-      <div class="case-egg case-egg--card" style="background:${item.shell}">
+      <div class="case-egg case-egg--card case-egg--art" style="background:${item.shell}">
         <em class="egg-shell__icon egg-shell__icon--case" style="color:${item.iconTint}">${item.icon}</em>
-        <div class="egg-display egg-display--card">
-          <div class="egg-display__glow" style="--glow:${item.iconTint}"></div>
-          <div class="egg-display__character" style="--accent:${item.iconTint}">
-            <span>${item.icon}</span>
-          </div>
-          <div class="egg-display__shell egg-display__shell--top"></div>
-          <div class="egg-display__shell egg-display__shell--bottom"></div>
-          <div class="egg-display__foliage"></div>
-          <div class="egg-display__pedestal"></div>
-        </div>
-        <div class="crack-lines"></div>
+        ${renderEggArt(item, "card")}
         <div class="case-card__headline">
           <strong>${item.name}</strong>
         </div>
@@ -1990,6 +1964,8 @@ function playSound(type) {
   }
 }
 
+function caseEggArt(slug) { return `assets/eggs/${slug}.png`; }
+
 function skinArt(slug, type, primary, secondary) {
   const remote = `https://cdn.csgoskins.gg/public/images/galleries/v4/${slug}/inspecting.png`;
   return remote;
@@ -2038,6 +2014,9 @@ function weaponArt(type, primary, secondary) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 180"><rect width="460" height="180" rx="26" fill="rgba(255,255,255,0.03)" />${shapes[type] || shapes.rifle}</svg>`;
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 }
+
+
+
 
 
 
