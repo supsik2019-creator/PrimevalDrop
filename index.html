@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primeval Drop</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="brand-mark__glow"></span>
+          <span class="brand-mark__egg"></span>
+          <span class="brand-mark__cradle"></span>
+        </div>
+        <div>
+          <p class="eyebrow">Primeval Drop</p>
+          <h1>Jurassic Cases</h1>
+        </div>
+      </div>
+      <nav class="nav" id="main-nav"></nav>
+      <section class="sidebar-card">
+        <p class="eyebrow" id="sidebar-status-title">Dinolab Status</p>
+        <div class="status-row"><span id="status-balance-label">Баланс</span><strong id="balance-value">€0.00</strong></div>
+        <div class="status-row"><span id="status-inventory-label">Инвентарь</span><strong id="inventory-count">0</strong></div>
+        <div class="status-row"><span id="status-opened-label">Открыто яиц</span><strong id="opened-count">0</strong></div>
+        <div class="status-row"><span id="status-free-label">Бонусные яйца</span><strong id="free-cases-count">0</strong></div>
+      </section>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="topbar-eyebrow">Dino vault / case simulator</p>
+          <h2 id="page-title">Главная</h2>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost-button" id="sound-toggle-button">Звук: ON</button>
+          <button class="ghost-button" id="music-toggle-button">Музыка: OFF</button>
+          <button class="ghost-button" id="music-next-button">Следующий трек</button>
+          <span class="music-status" id="music-track-label">Spotify</span>
+          <label class="music-volume" for="music-volume-slider">
+            <span class="music-volume__label">Spotify</span>
+            <input type="range" id="music-volume-slider" min="0" max="100" step="1" value="35">
+            <strong id="music-volume-value">35%</strong>
+          </label>
+        </div>
+      </header>
+      <section id="page-root" class="page-root"></section>
+    </main>
+  </div>
+
+  <div class="modal hidden" id="drop-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-card">
+      <button class="modal-close" id="close-drop-modal" aria-label="Закрыть">×</button>
+      <div id="drop-modal-content"></div>
+    </div>
+  </div>
+
+  <template id="weapon-card-template">
+    <article class="weapon-card">
+      <div class="weapon-card__media">
+        <div class="weapon-card__glow"></div>
+        <div class="weapon-card__weapon"></div>
+      </div>
+      <div class="weapon-card__meta">
+        <span class="rarity-pill"></span>
+        <h3></h3>
+        <p class="weapon-card__collection"></p>
+        <div class="weapon-card__footer">
+          <strong class="weapon-card__price"></strong>
+          <span class="weapon-card__wear"></span>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
